@@ -6,7 +6,7 @@ require "pry"
 describe "Pagina de Itens" do
 
     # Antes de tudo, executar
-    before(:all) do
+    before(:each) do
         @driver = Selenium::WebDriver.for(:chrome)
 
         @login = LoginPage.new(@driver)
@@ -22,10 +22,13 @@ describe "Pagina de Itens" do
     after(:each) do
         @driver.quit
     end
-    it "-> Login executado com sucesso" do
-        @login.fazerLogin("standard_user", "secret_sauce")
-        #binding.pry
-        expect(@login.driver.page_source).to include("Products")
+
+    it "-> Validar os textos da página Item" do
+        expect(@item.getTextName).to include("Sauce Labs Backpack")
+        expect(@item.getTextDesc).to include("carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.")
+        expect(@item.getTextPrice).to include("$29.99")
+        expect(@item.getTextAdd).to include("ADD TO CART")
+        expect(@item.getTextBack).to include("Back")
     end
 
 end
