@@ -1,26 +1,30 @@
 require_relative('./pages/_Login_page.rb')
-require_relative('./pages/_Inventario_page.rb')
+require_relative('./pages/_Produto_page.rb')
 require "selenium-webdriver"
 require "pry"
 
 describe "Pagina de Itens" do
 
     # Antes de tudo, executar
-    before(:each) do
+    before(:all) do
         @driver = Selenium::WebDriver.for(:chrome)
 
         @login = LoginPage.new(@driver)
-        @produtos = ProdutosPage.new(@driver)
-        @driver.navigate.to("https://www.saucedemo.com/")
-        @login.fazerLogin("standard_user", "secret_sauce")
+        @produtos = ProdutoPage.new(@driver)
+        @item = ItemPage.new(@driver)
     end
-    
-    # Antes de cada, executar
 
 
     # Depois de cada, executar
     after(:each) do
         @driver.quit
+    end
+
+    it "-> Fluxo até a página Item: Backpack" do
+        @driver.navigate.to("https://www.saucedemo.com/")
+        @login.fazerLogin("standard_user", "secret_sauce")
+        @item.acessarBackpack()
+        
     end
 
     it "-> Validar os textos da página Item" do

@@ -40,7 +40,7 @@ class LoginPage
 
     def fazerLogin(nome, senha)
         input_nome.send_keys(nome)
-        input_senha.send_keys(nome)
+        input_senha.send_keys(senha)
         btn_login.click()
     end
 end
