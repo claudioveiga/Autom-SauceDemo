@@ -1,5 +1,6 @@
 require_relative('./pages/_Login_page.rb')
 require_relative('./pages/_Produto_page.rb')
+require_relative('./pages/_Item_page.rb')
 require "selenium-webdriver"
 require "pry"
 
@@ -28,11 +29,11 @@ describe "Pagina de Itens" do
     end
 
     it "-> Validar os textos da página Item" do
-        expect(@item.getTextName).to include("Sauce Labs Backpack")
-        expect(@item.getTextDesc).to include("carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.")
-        expect(@item.getTextPrice).to include("$29.99")
-        expect(@item.getTextAdd).to include("ADD TO CART")
-        expect(@item.getTextBack).to include("Back")
+        expect(@item.text_nameItem).to include("Sauce Labs Backpack")
+        expect(@item.text_descItem).to include("carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.")
+        expect(@item.text_priceItem).to include("$29.99")
+        expect(@item.btn_addRemToCart).to include("ADD TO CART")
+        expect(@item.btn_backToProduct).to include("Back")
     end
 
 end
