@@ -29,7 +29,7 @@ class ItemPage
     #end
 
     def acessarBackpack()
-        link_backpack.click()
+        @produto.acessar_backpack()
     end
 
     def acessarJacket()

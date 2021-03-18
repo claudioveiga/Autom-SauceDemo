@@ -34,7 +34,7 @@ class ProdutoPage
             def btn_addRemBackpack
                 driver.find_element(:css, '#inventory_container > div > div:nth-child(1) > div.pricebar > button')
             end
-            
+
 
             # Link de acesso ao item Bike Light
             def link_bikeLight
@@ -56,7 +56,7 @@ class ProdutoPage
                 driver.find_element(:css, '#inventory_container > div > div:nth-child(2) > div.pricebar > button')
             end
 
-
+            
             # Link de acesso ao item Bolt T-Shirt
             def link_tShirt
                 driver.find_element(:css, '#item_1_title_link > div')
@@ -202,6 +202,11 @@ class ProdutoPage
             btn_addOnesie.click()
         end
     
+
+        # Acessando o item backpack
+        def acessar_backpack()
+            link_backpack.click()
+        end
     #end
 
 end

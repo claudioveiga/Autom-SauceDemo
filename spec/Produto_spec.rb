@@ -1,5 +1,5 @@
 require_relative('./pages/_Login_page.rb')
-require_relative('./pages/_Inventario_page.rb')
+require_relative('./pages/_Produto_page.rb')
 require "selenium-webdriver"
 require "pry"
 
