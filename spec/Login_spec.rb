@@ -1,6 +1,7 @@
-require_relative('./pages/_Login_page.rb')
-require_relative('./pages/_Inventario_page.rb').
+require "selenium-webdriver"
 require "pry"
+require_relative('./pages/_Login_page.rb')
+require_relative('./pages/_Produto_page.rb')
 
 describe "Pagina de Login" do
 
@@ -9,7 +10,7 @@ describe "Pagina de Login" do
         @driver = Selenium::WebDriver.for(:chrome)
 
         @login = LoginPage.new(@driver)
-        @produtos = ProdutosPage.new(@driver)
+        @produto = ProdutoPage.new(@driver)
     end
     
     # Antes de cada, executar
@@ -24,13 +25,13 @@ describe "Pagina de Login" do
 
     it "-> Login executado com erro" do
         @login.fazerLogin("standard_user", "senhaerrada")
-        #binding.pry
+        
         expect(@login.driver.page_source).to include("Epic sadface: Username and password do not match any user in this service")
     end
 
     it "-> Login executado com sucesso" do
         @login.fazerLogin("standard_user", "secret_sauce")
-        #binding.pry
+        
         expect(@login.driver.page_source).to include("Products")
     end
 

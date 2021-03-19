@@ -1,7 +1,7 @@
-require_relative('./pages/_Login_page.rb')
-require_relative('./pages/_Produto_page.rb')
 require "selenium-webdriver"
 require "pry"
+require_relative('./pages/_Login_page.rb')
+require_relative('./pages/_Produto_page.rb')
 
 describe "Página de Produto" do
 

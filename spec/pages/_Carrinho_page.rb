@@ -1,4 +1,6 @@
-class CarrinhoPage
+require_relative('./_Base_page.rb')
+
+class CarrinhoPage < BasePage
     attr_accessor :driver
     def initialize(webDriver)
         @driver = webDriver
