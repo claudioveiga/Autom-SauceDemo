@@ -6,22 +6,26 @@ require_relative('./pages/_Produto_page.rb')
 describe "Página de Produto" do
 
     # Antes de tudo, executar
-    before(:each) do
-        @driver = Selenium::WebDriver.for(:chrome)
 
-        @login = LoginPage.new(@driver)
-        @produto = ProdutoPage.new(@driver)
-        @driver.navigate.to("https://www.saucedemo.com/")
-        @login.fazerLogin("standard_user", "secret_sauce")
-    end
+        before(:each) do
+            @driver = Selenium::WebDriver.for(:chrome)
+            @login = LoginPage.new(@driver)
+            @produto = ProdutoPage.new(@driver)
+            
+            @driver.navigate.to("https://www.saucedemo.com/")
+            @login.fazerLogin("standard_user", "secret_sauce")
+        end
+        
+    #end
     
-    # Antes de cada, executar
-
 
     # Depois de cada, executar
-    after(:each) do
-        @driver.quit
-    end
+
+        after(:each) do
+            @driver.quit
+        end
+
+    #end
 
     it "-> Fluxo até a página Produto" do
          expect(@login.driver.page_source).to include("Products")

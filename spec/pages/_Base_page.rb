@@ -35,5 +35,8 @@ class BasePage
 
     #end
 
+    def clicarCarrinho()
+        btn_carrinho.click()
+    end
     
 end

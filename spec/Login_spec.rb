@@ -6,22 +6,24 @@ require_relative('./pages/_Produto_page.rb')
 describe "Pagina de Login" do
 
     # Antes de tudo, executar
-    before(:all) do
-        @driver = Selenium::WebDriver.for(:chrome)
-
-        @login = LoginPage.new(@driver)
-        @produto = ProdutoPage.new(@driver)
-    end
     
-    # Antes de cada, executar
-    before(:each) do
-        @driver.navigate.to("https://www.saucedemo.com/")
-    end
+        before(:each) do
+            @driver = Selenium::WebDriver.for(:chrome)
+            @login = LoginPage.new(@driver)
+            @produto = ProdutoPage.new(@driver)
+
+            @driver.navigate.to("https://www.saucedemo.com/")
+        end
+
+    #end
 
     # Depois de cada, executar
-    after(:each) do
-        @driver.quit
-    end
+
+        after(:each) do
+            @driver.quit
+        end
+
+    #end
 
     it "-> Login executado com erro" do
         @login.fazerLogin("standard_user", "senhaerrada")

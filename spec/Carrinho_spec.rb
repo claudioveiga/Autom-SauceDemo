@@ -8,46 +8,54 @@ require_relative('./pages/_Carrinho_page.rb')
 describe "Pagina de Carrinho" do
 
     # Antes de tudo, executar
-        before(:all) do
+    
+        before(:each) do
             @driver = Selenium::WebDriver.for(:chrome)
-
             @login = LoginPage.new(@driver)
             @produto = ProdutoPage.new(@driver)
-        end
+            @carrinho = CarrinhoPage.new(@driver)
 
- # Antes de cada, executar
-    before(:each) do
-        @driver.navigate.to("https://www.saucedemo.com/")
-        @login.fazerLogin("standard_user", "secret_sauce")
+            @driver.navigate.to("https://www.saucedemo.com/")
+            @login.fazerLogin("standard_user", "secret_sauce")
         
-    end
+        end
+    
+    #end
 
     # Depois de cada, executar
-    after(:each) do
-        @driver.quit
-    end
+
+        after(:each) do
+            @driver.quit
+        end
+
+    #end
 
     it "-> Fluxo até a página Carrinho" do
         @produto.clicarCarrinho()
 
-        expect(@item.driver.page_source).to include("")
+        expect(@carrinho.text_titulo.text).to include("Your Cart")
+        expect(@carrinho.text_qty.text).to include("QTY")
+        expect(@carrinho.text_desc.text).to include("DESCRIPTION")
+        expect(@carrinho.btn_contShop.text).to include("CONTINUE SHOPPING")
+        expect(@carrinho.btn_checkout.text).to include("CHECKOUT")
     end
 
     it "-> Inserir um item no carrinho" do
         @produto.addToCartBackpack()
-        @base.btn_carrinho.click()
+        @produto.clicarCarrinho()
 
-        expect(@item.driver.page_source).to include("")
-        expect(@item.driver.page_source).to include("")
+        expect(@carrinho.driver.page_source).to include("")
+        expect(@carrinho.driver.page_source).to include("")
     end
 
-    it "-> Inserir dois item no carrinho" do
-        @produto.addToCartJacket()
-        @produto.addToCartOnesie()
+    # it "-> Inserir dois item no carrinho" do
+    #     @produto.addToCartJacket()
+    #     @produto.addToCartOnesie()
+    #     @produto.clicarCarrinho()
 
-        expect(@item.driver.page_source).to include("")
-        expect(@item.driver.page_source).to include("")
-        expect(@item.driver.page_source).to include("")
-    end
+    #     expect(@carrinho.driver.page_source).to include("")
+    #     expect(@carrinho.driver.page_source).to include("")
+    #     expect(@carrinho.driver.page_source).to include("")
+    # end
 
 end

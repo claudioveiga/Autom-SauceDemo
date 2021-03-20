@@ -9,19 +9,12 @@ describe "Pagina de Itens" do
 
     # Antes de tudo, executar
 
-        before(:all) do
+        before(:each) do
             @driver = Selenium::WebDriver.for(:chrome)
-
             @login = LoginPage.new(@driver)
             @produto = ProdutoPage.new(@driver)
             @item = ItemPage.new(@driver)
-        end
 
-    #end
-
-    # Antes de cada, executar
-
-        before(:each) do
             @driver.navigate.to("https://www.saucedemo.com/")
             @login.fazerLogin("standard_user", "secret_sauce")
             @produto.acessarBackpack()
