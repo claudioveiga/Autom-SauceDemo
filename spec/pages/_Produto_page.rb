@@ -7,7 +7,17 @@ class ProdutoPage < BasePage
     end
 
     # Mapeamento
+
+        #Título Produtos
+
+            def text_tituloProduto
+                driver.find_element(:css, '#inventory_filter_container > div')
+            end
+            
+        #end
+        
         #Produtos
+
             # Link de acesso ao item backpack
             def link_backpack
                 driver.find_element(:css, '#item_4_title_link > div')
@@ -185,22 +195,31 @@ class ProdutoPage < BasePage
 
     # Adicionando os itens
         def addToCartBackpack()
-            btn_addBackpack.click()
+            btn_addRemBackpack.click()
         end
 
         def addToCartJacket()
-            btn_addJacket.click()
+            btn_addRemJacket.click()
         end
 
         def addToCartOnesie()
-            btn_addOnesie.click()
+            btn_addRemOnesie.click()
         end
 
     #end
 
     #Acessando os itens
+
         def acessarBackpack()
             link_backpack.click()
+        end
+
+        def acessarBikeLight()
+            link_bikeLight.click()
+        end
+
+        def acessarTShirt()
+            link_tShirt.click()
         end
 
         def acessarJacket()
@@ -209,7 +228,12 @@ class ProdutoPage < BasePage
 
         def acessarOnesie()
             link_onesie.click()
+        end 
+
+        def acessarRedTShirt()
+            link_redTshirt.click()
         end
+
     #end
 
 

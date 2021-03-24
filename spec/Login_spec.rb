@@ -6,7 +6,7 @@ require_relative('./pages/_Produto_page.rb')
 describe "Pagina de Login" do
 
     # Antes de tudo, executar
-    
+
         before(:each) do
             @driver = Selenium::WebDriver.for(:chrome)
             @login = LoginPage.new(@driver)
@@ -37,4 +37,21 @@ describe "Pagina de Login" do
         expect(@login.driver.page_source).to include("Products")
     end
 
+    it "-> Login executado com sucesso" do
+        @login.fazerLogin("locked_out_user", "secret_sauce")
+        
+        expect(@login.driver.page_source).to include("Epic sadface: Sorry, this user has been locked out.")
+    end
+
+    it "-> Login executado com sucesso" do
+        @login.fazerLogin("problem_user", "secret_sauce")
+        
+        expect(@login.driver.page_source).to include("Products")
+    end
+
+    it "-> Login executado com sucesso" do
+        @login.fazerLogin("performance_glitch_user", "secret_sauce")
+        
+        expect(@login.driver.page_source).to include("Products")
+    end
 end

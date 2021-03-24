@@ -7,7 +7,9 @@ class ItemPage < BasePage
     end
 
     # Mapeamento
+
         # Mapeando itens
+
             def text_nameItem
                 driver.find_element(:css, '#inventory_item_container > div > div > div > div.inventory_details_name')
             end
@@ -29,6 +31,13 @@ class ItemPage < BasePage
             end
 
         #end
+        
+    #end
+
+    # Pressionar botão voltar
+        def VoltarProduto
+            btn_backToProduct.click()
+        end
     #end
 
 

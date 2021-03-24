@@ -30,7 +30,7 @@ describe "Pagina de Carrinho" do
 
     #end
 
-    it "-> Fluxo até a página Carrinho" do
+    it "-> Fluxo até a página Carrinho sem nada" do
         @produto.clicarCarrinho()
 
         expect(@carrinho.text_titulo.text).to include("Your Cart")
@@ -44,18 +44,33 @@ describe "Pagina de Carrinho" do
         @produto.addToCartBackpack()
         @produto.clicarCarrinho()
 
-        expect(@carrinho.driver.page_source).to include("")
-        expect(@carrinho.driver.page_source).to include("")
+        expect(@carrinho.link_1_titulo.text).to include("Sauce Labs Backpack")
+        expect(@carrinho.text_1_item.text).to include("1")
+        expect(@carrinho.text_1_desc.text).to include("carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.")
+        expect(@carrinho.text_1_price.text).to include("29.99")
+        expect(@carrinho.btn_1_rem.text).to include("REMOVE")
     end
 
-    # it "-> Inserir dois item no carrinho" do
-    #     @produto.addToCartJacket()
-    #     @produto.addToCartOnesie()
-    #     @produto.clicarCarrinho()
+    it "-> Inserir dois itens no carrinho" do
+        @produto.addToCartJacket()
+        @produto.addToCartOnesie()
+        @produto.clicarCarrinho()
 
-    #     expect(@carrinho.driver.page_source).to include("")
-    #     expect(@carrinho.driver.page_source).to include("")
-    #     expect(@carrinho.driver.page_source).to include("")
+        expect(@carrinho.link_1_titulo.text).to include("Sauce Labs Fleece Jacket")
+        expect(@carrinho.text_1_item.text).to include("1")
+        expect(@carrinho.text_1_desc.text).to include("It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.")
+        expect(@carrinho.text_1_price.text).to include("49.99")
+        expect(@carrinho.btn_1_rem.text).to include("REMOVE")
+
+        expect(@carrinho.link_2_titulo.text).to include("Sauce Labs Onesie")
+        expect(@carrinho.text_2_item.text).to include("1")
+        expect(@carrinho.text_2_desc.text).to include("Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel.")
+        expect(@carrinho.text_2_price.text).to include("7.99")
+        expect(@carrinho.btn_2_rem.text).to include("REMOVE")
+    end
+
+    # it "Fluxo voltar a tela de produto"
+
     # end
 
 end
