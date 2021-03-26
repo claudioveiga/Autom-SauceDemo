@@ -100,9 +100,9 @@ class CarrinhoPage < BasePage
 
     # Acessar item 2
 
-    def acessarItem2
-        item_2_title_link.click()
-    end
+        def acessarItem2
+            item_2_title_link.click()
+        end
    
     #end
 

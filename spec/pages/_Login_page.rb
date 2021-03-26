@@ -7,7 +7,9 @@ class LoginPage < BasePage
     end
 
     # Mapeamento
+
         #Login
+        
             def input_nome
                 driver.find_element(:id, 'user-name')
             end
@@ -19,7 +21,9 @@ class LoginPage < BasePage
             def btn_login
                 driver.find_element(:id, 'login-button')
             end
+
         #end
+
     # end
 
     def fazerLogin(nome, senha)
@@ -27,6 +31,7 @@ class LoginPage < BasePage
         input_senha.send_keys(senha)
         btn_login.click()
     end
+
 end
 
 

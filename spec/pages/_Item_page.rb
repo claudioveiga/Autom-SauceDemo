@@ -35,9 +35,11 @@ class ItemPage < BasePage
     #end
 
     # Pressionar botão voltar
+
         def VoltarProduto
             btn_backToProduct.click()
         end
+        
     #end
 
 

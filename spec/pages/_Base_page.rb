@@ -5,6 +5,7 @@ class BasePage
     end
 
     # Mapeamento
+    
         def btn_menuPrincipal
             driver.find_element(:css, '#menu_button_container > div > div:nth-child(3) > div > button')
         end
