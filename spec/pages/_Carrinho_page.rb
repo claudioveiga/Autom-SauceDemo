@@ -38,12 +38,12 @@ class CarrinhoPage < BasePage
                 driver.find_element(:css, '#cart_contents_container > div > div.cart_list > div.cart_item:nth-child(3)')
             end
 
-            def link_1_titulo
-                box_1_card.find_element(:css, 'div.inventory_item_name')
+            def text_1_qty
+                box_1_card.find_element(:css, 'div.cart_quantity')
             end
 
-            def text_1_item
-                box_1_card.find_element(:css, 'div.cart_quantity')
+            def link_1_titulo
+                box_1_card.find_element(:css, 'div.inventory_item_name')
             end
 
             def text_1_desc
@@ -106,5 +106,13 @@ class CarrinhoPage < BasePage
    
     #end
 
+    # Checkout
+
+        def checkout
+            btn_checkout.click()
+        end
+
+    #end
+   
 
 end
