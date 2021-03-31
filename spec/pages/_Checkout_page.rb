@@ -17,15 +17,15 @@ class CheckoutPage < BasePage
         #Checkout Your Information
 
             def input_firstName
-                driver.find_element(:id, 'first-name')
+                driver.find_element(:css, '#first-name')
             end
 
             def input_lastName
-                driver.find_element(:id, '#last-name')
+                driver.find_element(:css, '#last-name')
             end
 
             def input_zipCode
-                driver.find_element(:id, 'postal-code')
+                driver.find_element(:css, '#postal-code')
             end
 
             def btn_cancelInfo
@@ -123,12 +123,24 @@ class CheckoutPage < BasePage
 
         #end
 
-        def fazerYourInfo(first, last, zip)
-            input_firstName.send_keys(first)
-            input_lastName.send_keys(last)
-            input_zipCode.send_keys(zip)
-            btn_continue.click()
-        end
+        #Preencher Your Information
+        
+            def fazerYourInfo(first, last, zip)
+                input_firstName.send_keys(first)
+                input_lastName.send_keys(last)
+                input_zipCode.send_keys(zip)
+                btn_continue.click()
+            end
+
+        #end
+
+        #Pressionar Finish
+
+            def finish()
+                btn_finish.click()
+            end
+
+        #end
 
     # end
 
