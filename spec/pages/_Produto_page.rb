@@ -38,7 +38,7 @@ class ProdutoPage < BasePage
 
         # Botão de adicionar/ remover do item backpack
             def btn_addRemBackpack
-                driver.find_element(:css, '#inventory_container > div > div:nth-child(1) > div.pricebar > button')
+                driver.find_element(:css, 'div.inventory_list > div:nth-child(1) button)
             end
         #end
 
@@ -221,7 +221,7 @@ class ProdutoPage < BasePage
     #end
 
     # Adicionando os itens
-    
+
         def addToCartBackpack()
             btn_addRemBackpack.click()
         end
