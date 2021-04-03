@@ -34,7 +34,7 @@ describe "Pagina de Login" do
     it "-> Login executado com sucesso standard_user" do
         @login.fazerLogin("standard_user", "secret_sauce")
         
-        expect(@login.driver.page_source).to include("Products")
+        expect(@login.driver.page_source).to include("PRODUCTS")
     end
 
     it "-> Login executado com erro locked_out_user" do
@@ -46,12 +46,13 @@ describe "Pagina de Login" do
     it "-> Login executado com sucesso problem_user" do
         @login.fazerLogin("problem_user", "secret_sauce")
         
-        expect(@login.driver.page_source).to include("Products")
+        expect(@login.driver.page_source).to include("PRODUCTS")
     end
 
     it "-> Login executado com sucesso performance_glitch_user" do
         @login.fazerLogin("performance_glitch_user", "secret_sauce")
         
-        expect(@login.driver.page_source).to include("Products")
+        expect(@login.driver.page_source).to include("PRODUCTS")
     end
+
 end

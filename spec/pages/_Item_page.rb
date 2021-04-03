@@ -27,7 +27,7 @@ class ItemPage < BasePage
             end
 
             def btn_backToProduct
-                driver.find_element(:css, '#inventory_item_container > div > button')
+                driver.find_element(:css, '#back-to-products')
             end
 
         #end
