@@ -11,19 +11,27 @@ class LoginPage < BasePage
         #Login
         
             def input_nome
-                driver.find_element(:id, '#user-name')
+                driver.find_element(:css, '#user-name')
             end
 
             def input_senha
-                driver.find_element(:id, '#password')
+                driver.find_element(:css, '#password')
             end
 
             def btn_login
-                driver.find_element(:id, '#login-button')
+                driver.find_element(:css, '#login-button')
             end
 
             def text_error
                 driver.find_element(:css, '#login_button_container > div > form > div.error-message-container.error > h3')
+            end
+
+            def text_user
+                driver.find_element(:css, '#login_credentials')
+            end
+
+            def text_passw
+                driver.find_element(:css, '#root > div > div.login_wrapper > div.login_credentials_wrap > div > div.login_password')
             end
 
         #end

@@ -11,7 +11,7 @@ class CarrinhoPage < BasePage
         # Mapeando itens
                     
             def text_titulo
-                driver.find_element(:css, '#contents_wrapper > div.subheader')
+                driver.find_element(:css, '#header_container > div.header_secondary_container > span')
             end
 
             def text_qty
@@ -23,11 +23,11 @@ class CarrinhoPage < BasePage
             end
 
             def btn_contShop
-                driver.find_element(:css, '#cart_contents_container > div > div.cart_footer > a.btn_secondary')
+                driver.find_element(:css, '#continue-shopping')
             end
 
             def btn_checkout
-                driver.find_element(:css, '#cart_contents_container > div > div.cart_footer > a.btn_action.checkout_button')
+                driver.find_element(:css, '#checkout')
             end
 
         #end
@@ -38,12 +38,12 @@ class CarrinhoPage < BasePage
                 driver.find_element(:css, '#cart_contents_container > div > div.cart_list > div.cart_item:nth-child(3)')
             end
 
-            def text_1_qty
-                box_1_card.find_element(:css, 'div.cart_quantity')
-            end
-
             def link_1_titulo
                 box_1_card.find_element(:css, 'div.inventory_item_name')
+            end
+
+            def text_1_item
+                box_1_card.find_element(:css, 'div.cart_quantity')
             end
 
             def text_1_desc

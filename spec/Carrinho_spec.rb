@@ -33,7 +33,8 @@ describe "Pagina de Carrinho" do
     it "-> Fluxo até a página Carrinho sem nada" do
         @produto.clicarCarrinho()
 
-        expect(@carrinho.text_titulo.text).to include("Your Cart")
+        #binding.pry
+        expect(@carrinho.text_titulo.text).to include("YOUR CART")
         expect(@carrinho.text_qty.text).to include("QTY")
         expect(@carrinho.text_desc.text).to include("DESCRIPTION")
         expect(@carrinho.btn_contShop.text).to include("CONTINUE SHOPPING")
@@ -41,6 +42,7 @@ describe "Pagina de Carrinho" do
     end
 
     it "-> Inserir um item no carrinho" do
+        
         @produto.addToCartBackpack()
         @produto.clicarCarrinho()
 

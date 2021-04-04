@@ -31,7 +31,7 @@ class BasePage
         end
 
         def btn_carrinho
-            driver.find_element(:css, '#shopping_cart_container > a > svg > path')
+            driver.find_element(:css, '#shopping_cart_container > a')
         end
 
     #end

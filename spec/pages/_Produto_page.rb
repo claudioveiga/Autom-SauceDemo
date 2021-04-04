@@ -15,7 +15,7 @@ class ProdutoPage < BasePage
             end
 
             def text_tituloProduto
-                box_header.find_element(:css, '.title')
+                box_header.find_element(:css, '#header_container > div.header_secondary_container > span')
             end
             
         #end

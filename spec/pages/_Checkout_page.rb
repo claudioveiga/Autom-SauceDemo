@@ -10,7 +10,7 @@ class CheckoutPage < BasePage
     # Mapeamento
 
             def text_title
-                driver.find_element(:css, '#contents_wrapper > div.subheader')
+                driver.find_element(:css, '#header_container > div.header_secondary_container > span')
             end
 
 
@@ -29,15 +29,15 @@ class CheckoutPage < BasePage
             end
 
             def btn_cancelInfo
-                driver.find_element(:css, '#checkout_info_container > div > form > div.checkout_buttons > a')
+                driver.find_element(:css, '#cancel')
             end
 
             def btn_continue
-                driver.find_element(:css, '#checkout_info_container > div > form > div.checkout_buttons > input')
+                driver.find_element(:css, '#continue')
             end
 
             def error_label
-                driver.find_element(:css, '#checkout_info_container > div > form > h3')
+                driver.find_element(:css, '#checkout_info_container > div > form > div.checkout_info > div.error-message-container.error > h3')
             end
 
         #end
@@ -105,7 +105,7 @@ class CheckoutPage < BasePage
 
 
             def btn_cancelOver
-                driver.find_element(:css, '#checkout_summary_container > div > div.summary_info > div.cart_footer > a.cart_cancel_link.btn_secondary')
+                driver.find_element(:css, '#cancel')
             end
 
             def btn_finish

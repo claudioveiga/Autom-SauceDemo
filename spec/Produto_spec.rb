@@ -28,7 +28,7 @@ describe "Página de Produto" do
     #end
 
     it "-> Fluxo até a página Produto" do
-         expect(@produto.text_tituloProduto.text).to include("Products")
+         expect(@produto.text_tituloProduto.text).to include("PRODUCTS")
     end
 
     it "-> Validar as informações do Produto backpack" do
